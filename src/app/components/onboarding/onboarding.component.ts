@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-onboarding',
@@ -21,6 +21,9 @@ export class OnboardingComponent implements OnInit {
     })
   }
 
+  get email(): AbstractControl { return this.form.get('email') };
+  get passwordOne(): AbstractControl { return this.form.get('passwordOne'); }
+  get passwordTwo(): AbstractControl { return this.form.get('passwordTwo'); }
   submit() {
     console.log(this.form.value);
     if (!this.form.valid) {
