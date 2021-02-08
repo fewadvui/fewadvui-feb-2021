@@ -11,6 +11,7 @@ import { PlatforminfoComponent } from './components/platforminfo/platforminfo.co
 import { OnboardingComponent } from './components/onboarding/onboarding.component';
 import { HttpClientModule } from "@angular/common/http";
 import { UserManagerService } from './services/user-manager.service';
+import { OrdersModule } from './features/orders/orders.module';
 @NgModule({
   declarations: [
     AppComponent,

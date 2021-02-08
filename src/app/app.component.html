@@ -1,3 +1,8 @@
 <div class="container">
-  <app-onboarding></app-onboarding>
+  <ul class="list-unstyled">
+    <li><a [routerLink]="['onboarding']">Onboarding</a></li>
+    <li><a [routerLink]="['copypasta']">Copy pasta</a></li>
+    <li><a [routerLink]="['orders']">Orders</a></li>
+  </ul>
+  <router-outlet></router-outlet>
 </div>
