@@ -7,11 +7,15 @@ import { CopypastaComponent } from './components/copypasta/copypasta.component';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import { FormsModule } from "@angular/forms";
 import { ReactiveFormsModule } from "@angular/forms";
+import { PlatforminfoComponent } from './components/platforminfo/platforminfo.component';
+import { OnboardingComponent } from './components/onboarding/onboarding.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CopypastaComponent
+    CopypastaComponent,
+    PlatforminfoComponent,
+    OnboardingComponent
   ],
   imports: [
     BrowserModule,

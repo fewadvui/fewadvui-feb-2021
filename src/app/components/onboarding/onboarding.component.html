@@ -1,0 +1,31 @@
+<form [formGroup]="form"
+      (ngSubmit)="submit()">
+  <div class="form-group">
+    <label for="email">Your Email Address</label>
+    <input class="form-control"
+           formControlName="email"
+           id="email"
+           type="email">
+  </div>
+  <div class="form-group">
+    <label for="password-one">Create a Password</label>
+    <input type="password"
+           formControlName="passwordOne"
+           id="password-one"
+           class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="password-two">Confirm Password</label>
+    <input type="password"
+           formControlName="passwordTwo"
+           id="password-two"
+           class="form-control">
+  </div>
+  <button type="submit"
+          class="btn btn-primary">Sign me up!</button>
+</form>
+
+<pre>
+  The Form:
+  {{ form.value | json }}
+</pre>
