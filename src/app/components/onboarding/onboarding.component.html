@@ -6,6 +6,11 @@
            formControlName="email"
            id="email"
            type="email">
+    <div class="alert alert-danger"
+         *ngIf="email.invalid && (email.touched || email.dirty)">
+      <p *ngIf="email.errors.required">Email Address is Required</p>
+      <p *ngIf="email.errors.maxlength">That email is too long!</p>
+    </div>
   </div>
   <div class="form-group">
     <label for="password-one">Create a Password</label>
@@ -25,12 +30,13 @@
           class="btn btn-primary">Sign me up!</button>
 </form>
 
+
 <pre>
   The Form:
   {{ form.value | json }}
 
   The Form Errors:
-
+  {{ form.errors | json}}
   Email:
 
   {{ email.errors | json }}
@@ -40,4 +46,6 @@
 
   Password Two:
   {{ passwordTwo.errors | json }}
+
+
 </pre>
