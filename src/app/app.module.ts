@@ -9,7 +9,8 @@ import { FormsModule } from "@angular/forms";
 import { ReactiveFormsModule } from "@angular/forms";
 import { PlatforminfoComponent } from './components/platforminfo/platforminfo.component';
 import { OnboardingComponent } from './components/onboarding/onboarding.component';
-
+import { HttpClientModule } from "@angular/common/http";
+import { UserManagerService } from './services/user-manager.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,9 +23,10 @@ import { OnboardingComponent } from './components/onboarding/onboarding.componen
     AppRoutingModule,
     ClipboardModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [UserManagerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

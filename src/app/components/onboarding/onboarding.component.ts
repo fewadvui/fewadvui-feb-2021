@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
-import { passwordsMatch } from 'src/app/validators/general';
+import { UserManagerService } from 'src/app/services/user-manager.service';
+import { passwordsMatch, EmailDoesNotAlreadyExistValidator } from 'src/app/validators/general';
 
 @Component({
   selector: 'app-onboarding',
@@ -11,14 +12,15 @@ export class OnboardingComponent implements OnInit {
 
   form: FormGroup = this.formBuilder.group({
     email: new FormControl('', {
-      validators: [Validators.email, Validators.required, Validators.maxLength(100)]
+      validators: [Validators.email, Validators.required, Validators.maxLength(100)],
+      asyncValidators: [EmailDoesNotAlreadyExistValidator.createValidator(this.service, 250)]
     }),
     passwordOne: ['', [Validators.required]],
     passwordTwo: ['', [Validators.required]]
   }, {
     validators: passwordsMatch('passwordOne', 'passwordTwo')
   })
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private service: UserManagerService) { }
 
   ngOnInit(): void {
 

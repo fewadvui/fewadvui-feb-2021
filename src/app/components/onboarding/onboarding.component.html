@@ -2,6 +2,8 @@
       (ngSubmit)="submit()">
   <div class="form-group">
     <label for="email">Your Email Address</label>
+    <i *ngIf="email.pending"
+       class="bi bi-arrow-clockwise"></i>
     <input class="form-control"
            formControlName="email"
            id="email"
@@ -10,6 +12,7 @@
          *ngIf="email.invalid && (email.touched || email.dirty)">
       <p *ngIf="email.errors.required">Email Address is Required</p>
       <p *ngIf="email.errors.maxlength">That email is too long!</p>
+      <p *ngIf="email.errors.emailValidator">{{ email.errors.emailValidator}}</p>
     </div>
   </div>
   <div class="form-group">
@@ -27,6 +30,7 @@
            class="form-control">
   </div>
   <button type="submit"
+          [disabled]="email.pending"
           class="btn btn-primary">Sign me up!</button>
 </form>
 
